@@ -1,0 +1,75 @@
+.btn-field {
+  background-color: $color-white-smoke;
+  border: 2px solid transparent;
+  border-radius: 4rem;
+  font-size: 16px;
+  color: $color-pineapple;
+  font-family: $font-lato;
+  transition: all .3s cubic-bezier(1, .63, .39, 1.12);
+  
+  &_sm {
+    width: 15rem;
+    height: 3rem;
+    padding: 1rem;
+  }
+
+  &_m {
+    width: 20rem;
+    height: 4rem;
+    padding: 1rem;
+  }
+  
+  &_lg {
+    width: 26rem;
+    height: 5rem;
+    padding: 2rem;
+  }
+
+  &::placeholder {
+    color: $color-pineapple-light;
+    letter-spacing: 2px;
+    padding-left: 1rem;
+  }
+  
+  &:hover {
+    border: 3px solid $color-pineapple;
+  }
+  &:focus {
+    outline: 0;
+    box-shadow: $pineapple-shadow;
+  }
+
+  &_btn {
+    // needs position relative on form parent
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    color: $color-pineapple;
+    font-family: $font-oswald;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    border: none;
+    border-radius: 50%;
+
+    &_sm {
+      top: 6px;
+      right: 2rem;
+    }
+
+    &_m {
+      top: 6px;
+      right: 2rem;
+    }
+    &_lg {
+      top: 1rem;
+      right: 3rem;
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: $pineapple-shadow;
+    }
+  }
+}

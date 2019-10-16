@@ -1,0 +1,56 @@
+.btn-checkbox {
+  // This hides the default input
+  &__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    order: 2;
+  }
+
+  &__label {
+    width: 11rem;
+    position: relative;
+    // Shared attributes for circle and check
+    &::before,
+    &::after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+    }
+    // This creates the circle element
+    &::before {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      border: 2px solid $color-pineapple;
+      box-sizing: border-box;
+
+      top: -4px;
+      right: 0;
+    }
+    
+    // This creates the check element
+    &::after {
+      width: 20px;
+      height: 8px;
+      border-left: 4px solid $color-pineapple;
+      border-bottom: 4px solid $color-pineapple;
+      transform: rotate(-45deg);
+
+      top: 4px;
+      right: 0;
+    }
+  }
+  // State when input is not checked
+  &__input + &__label::after {
+    content: none;
+  }
+  // State when input is checked
+  &__input:checked + &__label::after {
+    content: '';
+  }
+  // State when input is focused
+  &__input:focus + &__label::after {
+    box-shadow: $pineapple-shadow;
+  }
+}

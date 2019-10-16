@@ -1,0 +1,29 @@
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: scroll;
+  
+  &__board,
+  &__snap {
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include respond(tab-port) {
+      padding: .5rem 0;
+    }
+  }
+}
+
+.add-field {
+  position: relative;
+  margin: 2rem 1.5rem 2rem 0;
+
+  @include respond (tab-port) {
+    margin: 1rem 1.5rem 1rem 0;
+  }
+}

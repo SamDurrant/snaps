@@ -1,0 +1,27 @@
+.select__custom {
+  display: inline-block;
+  width: 15rem;
+  height: 4rem;
+  border: none;
+  background-color: $color-pineapple;
+  color: $color-white-smoke;
+  font-family: $font-lato;
+  padding-left: 15px;
+
+  &-sm {
+    width: 8rem;
+    height: 3rem;
+    font-size: 1.6rem;
+  }
+
+  &-lg {
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.8rem;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: $pineapple-shadow;
+  }
+}

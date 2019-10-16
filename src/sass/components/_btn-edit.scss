@@ -1,0 +1,19 @@
+.btn-edit {
+  font-size: 2rem;
+  padding: 1rem;
+  display: inline-block;
+  color: $color-desire;
+  transition: $transition-one;
+
+  &:focus {
+    outline: none;
+    box-shadow: $pineapple-shadow;
+    border-radius: 4rem;
+  }
+
+  &:hover {
+    border-radius: 4rem;
+    background-color: $color-white-smoke;
+    transform: scale(1.2);
+  }
+}

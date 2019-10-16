@@ -1,0 +1,54 @@
+.settings-menu {
+  flex: 1 1 100%;
+}
+
+.settings-form {
+  background-color: $color-salmon-lightest;
+  border-left: 1px solid $color-pewter;
+  border-right: 1px solid $color-pewter;
+  border-bottom: 1px solid $color-pewter;
+  margin: 1rem 1rem 6rem;
+  
+  &__name,
+  &__color,
+  &__font,
+  &__transform,
+  &__sizing {
+    display: flex;
+    align-items: center;
+    margin: 3rem 1rem;
+
+    label {
+      padding: 0 15px;
+    }
+
+    @include respond (tab-port) {
+      margin: 2rem .5rem;
+    }
+  }
+
+  &__textarea {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 1rem;
+    align-items: baseline;
+
+    label {
+      padding: 0 15px 15px 15px;
+    }
+    
+    textarea {
+      align-self: center;
+    }
+
+    @include respond (tab-port) {
+      margin: 2rem .5rem;
+    }
+  }
+  &__btns {
+    margin: 6rem 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

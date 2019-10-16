@@ -1,0 +1,27 @@
+.board-card {
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 2rem;
+  transition: all .2s $transition-one;
+  transform: skewX(20deg);
+
+  h2 {
+    transform: skewX(-20deg);
+    width: max-content;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: $pineapple-shadow;
+  }
+  &:hover {
+    background-color: $color-pineapple;
+    color: $color-white-smoke;
+  }
+}
+
+.active-board {
+  background-color: $color-pineapple;
+  color: $color-white-smoke;
+}
