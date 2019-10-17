@@ -15,21 +15,26 @@ export const changeDisplayColor = (e) => {
   e.target.parentNode.style.backgroundColor = e.target.value;
 }
 
+export const clearForm = (form) => {
+  if (form === DOM.snapSettingsForm) {
+    DOM.snapColor.value = '#91a5b9';
+    DOM.snapColor.parentNode.style.backgroundColor = '#91a5b9';
+  }
+  form.reset();
+}
 
 export const getBoardSettings = () => {
   return {
-    name: DOM.boardName.value,
-    rotate: DOM.boardTransform.checked
+    name: DOM.boardName.value
   };
 }
 
 export const setBoardSettings = (activeBoard) => {
   DOM.boardName.value = activeBoard.name;
-  DOM.boardTransform.checked = activeBoard.rotate;
 }
 
-export const getSnapSettings = () => {
-  if (DOM.snapColor.value === "#000000") {
+export const getSnapSettings = (activeSnap) => {
+  if (!activeSnap.colorPicked) {
     DOM.snapColor.value = '#91a5b9';
   }
   return {

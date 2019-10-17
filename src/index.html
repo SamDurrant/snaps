@@ -40,11 +40,6 @@
               <input type="text" name="board-name" class="btn-field btn-field_sm" id="board-name">
             </div>
 
-            <div class="settings-form__transform">
-              <input type="checkbox" name="board-rotate" class="btn-checkbox__input" id="board-transform">
-              <label for="board-transform" class="btn-checkbox__label">rotate</label>
-            </div>
-
             <div class="settings-form__btns">
               <i name="delete board" class="fas fa-trash-alt btn-edit btn-edit_delete" id="js-delete-board" tabindex="0"></i>
               <button class="btn-submit" type="submit">change</button>
@@ -85,7 +80,7 @@
                   <option value="12">12</option>
                   <option value="14">14</option>
                   <option value="16">16</option>
-                  <option value="18">18</option>
+                  <option value="18" selected>18</option>
                   <option value="20">20</option>
                   <option value="22">22</option>
                   <option value="24">24</option>
@@ -107,7 +102,7 @@
             <div class="settings-form__sizing">
               <label for="snap-size">size</label>
               <select name="snap-size" class="select__custom select__custom-lg" id="snap-size">
-                <option value="1x1">1 x 1</option>
+                <option value="1x1" selected>1 x 1</option>
                 <option value="1x2">1 x 2</option>
                 <option value="1x3">1 x 3</option>
                 <option value="2x1">2 x 1</option>
@@ -132,33 +127,4 @@
   </div>
 
 </body>
-
 </html>
-
-<!-- 
-
-board:::
-- add new board
-- name board
-- rename board
-- delete board
-- pick bg color
-- transformEnabled
-
-snap:::
-- add new snap
-- add text or img
-- add tags
-- name snap
-- rename snap
-- delete snap
-- pick bg color
-- change font size
-- change snap size
-
-- transformEnabled:
-- - add text or img
-- - pick bg color
-- - delete snap side
-
--->

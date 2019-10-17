@@ -11,7 +11,6 @@ export class BoardList {
       name: name,
       id: uniqeid(),
       snaps: snaps,
-      rotate: false
     }
 
     this.boards.push(board);

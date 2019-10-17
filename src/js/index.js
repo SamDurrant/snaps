@@ -53,8 +53,7 @@ DOM.addSnapInput.addEventListener('keyup', (e) => {
 })
 
 // BTN CLICK RETRIEVES INPUT VALUE AND CREATES NEW SNAP
-DOM.addSnapBtn.addEventListener('click', (e) => {
-  // check for active board before adding snap
+DOM.addSnapBtn.addEventListener('click', () => {
   if (Object.keys(state.boardList.activeBoard).length !== 0) {
     const query = formView.getInput(DOM.addSnapInput);
     formView.clearInput(DOM.addSnapInput);
@@ -97,6 +96,7 @@ DOM.boardContainer.addEventListener('click', (e) => {
     boardView.setActiveClass(state.boardList.activeBoard);
     snapView.toggleVisibility(state.boardList.activeBoard.id);
     formView.setBoardSettings(state.boardList.activeBoard);
+    formView.clearForm(DOM.snapSettingsForm);
   }
 })
 
@@ -127,7 +127,7 @@ DOM.boardSettingsForm.addEventListener('submit', (e) => {
 DOM.snapSettingsForm.addEventListener('submit', (e) => {
   let snaps = state.boardList.activeBoard.snaps;
   e.preventDefault();
-  const snapFormValues = formView.getSnapSettings();
+  const snapFormValues = formView.getSnapSettings(snaps.activeSnap);
   snaps.updateSnapData(snapFormValues);
   snaps.setActiveSnap(snaps.activeSnap.id);
   snapView.updateSnap(snaps.activeSnap);
@@ -143,14 +143,14 @@ DOM.deleteBoard.addEventListener('click', () => {
     snapView.removeSnap(snap);
   })
   state.boardList.setNoActiveBoard();
-  console.log(state);
-
+  formView.clearForm(DOM.boardSettingsForm);
 })
 
 DOM.deleteSnap.addEventListener('click', () => {
   state.boardList.activeBoard.snaps.deleteSnap();
   snapView.removeSnap(state.boardList.activeBoard.snaps.activeSnap);
   state.boardList.activeBoard.snaps.setNoActiveSnap();
+  formView.clearForm(DOM.snapSettingsForm);
 })
 
 
