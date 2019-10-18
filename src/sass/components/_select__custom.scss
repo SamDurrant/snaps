@@ -18,6 +18,12 @@
     width: 15rem;
     height: 4rem;
     font-size: 1.8rem;
+
+    @include respond (phone) {
+      width: 10rem;
+      height: 3rem;
+      font-size: 1.6rem;
+    }
   }
 
   &:focus {

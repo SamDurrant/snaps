@@ -2,12 +2,21 @@
   background-color: $color-pewter;
 }
 
+.header-section {
+  border-bottom: 2px solid $color-white-smoke;
+}
+
 .board-section {
   background-color: $color-white-smoke;
 }
 
 .dashboard-section {
   background-color: $color-salmon-lightest;
+
+  .settings-form {
+    background-color: $color-pewter-light;
+    box-shadow: $pewter-shadow;
+  }
 }
 
 .snap-section {

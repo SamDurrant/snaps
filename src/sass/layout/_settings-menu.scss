@@ -3,11 +3,20 @@
 }
 
 .settings-form {
-  background-color: $color-salmon-lightest;
-  border-left: 1px solid $color-pewter;
-  border-right: 1px solid $color-pewter;
-  border-bottom: 1px solid $color-pewter;
-  margin: 1rem 1rem 6rem;
+  margin: 2rem auto;
+  padding: 1rem 1rem 3rem;
+  width: fit-content;
+
+  // @include respond (tab-port) {
+  //   padding: 1rem 3rem 2.5rem;
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   justify-content: center;
+  // }
+  @include respond (phone) {
+    padding: 1rem 1.5rem 2rem;
+    flex-direction: column;
+  }
   
   &__name,
   &__color,
@@ -16,25 +25,39 @@
   &__sizing {
     display: flex;
     align-items: center;
-    margin: 3rem 1rem;
+    margin: 2rem;
 
     label {
-      padding: 0 15px;
+      padding: 0 10px;
     }
 
     @include respond (tab-port) {
-      margin: 2rem .5rem;
+      margin: 1rem;
+    }
+  }
+
+  .textarea-container {
+    @include respond (tab-port) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1 1 100%;
+    }
+    @include respond (phone) {
+      justify-content: flex-start;
+      flex-direction: column;
     }
   }
 
   &__textarea {
     display: flex;
     flex-direction: column;
-    margin: 3rem 1rem;
+    margin: 3rem auto;
     align-items: baseline;
+    width: fit-content;
 
     label {
-      padding: 0 15px 15px 15px;
+      padding: 0 10px 10px 0;
     }
     
     textarea {
@@ -42,13 +65,24 @@
     }
 
     @include respond (tab-port) {
-      margin: 2rem .5rem;
+      margin: 2rem;
     }
   }
+
   &__btns {
-    margin: 6rem 2rem 2rem;
+    margin: 3rem 2rem 2rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+
+    @include respond (tab-port) {
+      margin: 2rem auto;
+      width: fit-content;
+      justify-content: center;
+
+      button {
+        margin-left: 2rem;
+      }
+    }
   }
 }

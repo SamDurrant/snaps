@@ -1,5 +1,4 @@
 .btn-dropdown {
-  
   &:focus {
     outline: none;
     box-shadow: $pineapple-shadow;
@@ -38,19 +37,6 @@
     background-color: $color-pineapple;
     transition: $transition-one;
   }
-
-  // &:hover {
-  //   background-color: transparent;
-
-  //   &::before {
-  //     top: 0;
-  //     transform: rotate(45deg);
-  //   }
-  //   &::after {
-  //     bottom: 0;
-  //     transform: rotate(-45deg);
-  //   }
-  // }
 }
 
 .btn-dropdown--active span {

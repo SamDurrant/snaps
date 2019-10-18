@@ -17,6 +17,11 @@
     width: 20rem;
     height: 4rem;
     padding: 1rem;
+
+    @include respond (tab-port) {
+      width: 15rem;
+      height: 4rem;
+    }
   }
   
   &_lg {
@@ -59,8 +64,12 @@
     }
 
     &_m {
-      top: 6px;
+      top: 4px;
       right: 2rem;
+
+      @include respond (tab-port) {
+        right: .5rem;
+      }
     }
     &_lg {
       top: 1rem;

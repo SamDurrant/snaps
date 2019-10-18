@@ -1,42 +1,21 @@
+$color-pewter: rgb(145, 165, 185);
+$color-pewter-light: lighten($color: $color-pewter, $amount: 20%);
 
-// #FFD926 - #FFBA07 - #00C3BF - #1B7FBD - #112F91 
-// #710627 - #EA5455 - #FAA275 - #F5E4C3 - #34A7B2 
-// #0D3B66 - #FAF0CA - #F4D35E - #EE964B - #F95738 
-// #EADEAD - #3EA060 - #FFD400 - #EE6352 - #2E294E 
-// font-family: 'Lato', sans-serif;
-// font-family: 'Oswald', sans-serif;
-
-$color-dark: rgb(18, 2, 107);
-$color-gold: #FFD400;
-$color-turq: #3EA060;
-$color-peach: #faa275;
-$color-peach-light: #fbbb9a;
-$color-red: #EA5455;
-$color-blue: rgb(15, 70, 104);
-
-$color-pewter: #91a5b9;
 $color-white-smoke: rgb(249, 245, 242);
-$pewter-shadow: 1px 3px 6px 1px rgba(15, 70, 104, 0.75);
+
+$color-salmon-light: #fbbb9a;
+$color-salmon-lightest: lighten($color: $color-salmon-light, $amount: 10%);
 
 $color-pineapple: rgb(65, 60, 94);
 $color-pineapple-light: lighten($color: $color-pineapple, $amount: 30%);
-$pineapple-shadow: 0 0 0 3px rgba(65, 60, 94, 0.5);
-$color-salmon: #faa275;
-$color-salmon-light: #fbbb9a;
-$color-salmon-lightest: lighten($color: $color-salmon-light, $amount: 10%);
-$color-moccasin: #fbf4d8;
-$color-cobalt: #26419b;
+
 $color-desire: #ea5455;
-$color-desire-bright: #F95738;
+
+$pewter-shadow: 0 4px 12px -6px rgba(145, 165, 185, 0.7);
+$pineapple-shadow: 0 0 0 3px rgba(65, 60, 94, 0.5);
 
 $font-lato: 'Lato', sans-serif;
 $font-oswald: 'Oswald', sans-serif;
 
 $transition-one: all .2s Cubic-bezier(1,.63,.39,1.12);
 $transition-two: all .7s Cubic-bezier(1,.63,.39,1.12);
-
-:root {
-  --color-salmon: #fcd9c7;
-  --color-blue: #0D3B66;
-  --color-gold: #FFBA07;
-}
