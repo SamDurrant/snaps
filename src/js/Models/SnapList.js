@@ -8,15 +8,15 @@ export class SnapList {
 
   addSnap (name, parentId, color = '#91a5b9', fontSize = '18', size = '1x1', frontContent = '', backContent = '') {
     const snap = {
-      name: name,
-      parentId: parentId,
+      name,
+      parentId,
       id: uniqeid(),
-      color: color,
+      color,
       colorPicked: false,
-      fontSize: fontSize,
-      size: size,
-      frontContent: frontContent,
-      backContent: backContent
+      fontSize,
+      size,
+      frontContent,
+      backContent
     }
 
     this.snaps.push(snap);
@@ -53,5 +53,9 @@ export class SnapList {
       return snap;
     });
     this.snaps = updatedSnaps;
+  }
+
+  static fromJSON(jsonObj) {
+    return Object.assign(new SnapList(), jsonObj);
   }
 }

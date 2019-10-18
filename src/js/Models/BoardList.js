@@ -8,9 +8,9 @@ export class BoardList {
 
   addBoard(name, snaps) {
     const board = {
-      name: name,
+      name,
       id: uniqeid(),
-      snaps: snaps,
+      snaps,
     }
 
     this.boards.push(board);
@@ -37,5 +37,9 @@ export class BoardList {
       return board;
     });
     this.boards = updatedBoards;
+  }
+
+  static fromJSON(jsonObj) {
+    return Object.assign(new BoardList(), jsonObj);
   }
 }

@@ -15,7 +15,15 @@ const state = {};
 
 // CREATE BOARDLIST FOR STORAGE ON DOCUMENT LOAD
 document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('boardList')) {
+    state.boardList = BoardList.fromJSON(JSON.parse(localStorage.getItem('boardList')));
+    state.boardList.boards.forEach(board => {
+      board.snaps = SnapList.fromJSON(board.snaps);
+    })
+    renderData();
+  } else {
     state.boardList = new BoardList();
+  }
 })
 
 
@@ -41,6 +49,8 @@ DOM.addBoardBtn.addEventListener('click', () => {
     boardView.renderBoard(state.boardList.activeBoard);
     boardView.setActiveClass(state.boardList.activeBoard);
     formView.setBoardSettings(state.boardList.activeBoard);
+    formView.clearForm(DOM.snapSettingsForm);
+    localStorage.setItem('boardList', JSON.stringify(state.boardList));
   }
 })
 
@@ -65,6 +75,7 @@ DOM.addSnapBtn.addEventListener('click', () => {
       snapView.renderSnap(snaps.activeSnap);
       snapView.setActiveClass(snaps.activeSnap);
       formView.setSnapSettings(snaps.activeSnap);
+      localStorage.setItem('boardList', JSON.stringify(state.boardList));
     }
   }
 })
@@ -105,7 +116,7 @@ function removeActiveUI() {
   if (state.boardList.activeBoard) {
     boardView.removeActiveClass(state.boardList.activeBoard);
     if (state.boardList.activeBoard.snaps) {
-      snapView.removeActiveClass(state.boardList.activeBoard.snaps);
+      snapView.removeActiveClass(state.boardList.activeBoard.snaps.activeSnap);
       snapView.toggleVisibility(state.boardList.activeBoard.id);
     }
   }
@@ -122,6 +133,7 @@ DOM.boardSettingsForm.addEventListener('submit', (e) => {
   state.boardList.setActiveBoard(state.boardList.activeBoard.id);
   boardView.updateBoard(state.boardList.activeBoard);
   formView.setBoardSettings(state.boardList.activeBoard);
+  localStorage.setItem('boardList', JSON.stringify(state.boardList));
 })
 
 DOM.snapSettingsForm.addEventListener('submit', (e) => {
@@ -132,6 +144,7 @@ DOM.snapSettingsForm.addEventListener('submit', (e) => {
   snaps.setActiveSnap(snaps.activeSnap.id);
   snapView.updateSnap(snaps.activeSnap);
   formView.setSnapSettings(snaps.activeSnap);
+  localStorage.setItem('boardList', JSON.stringify(state.boardList));
 })
 
 
@@ -144,6 +157,7 @@ DOM.deleteBoard.addEventListener('click', () => {
   })
   state.boardList.setNoActiveBoard();
   formView.clearForm(DOM.boardSettingsForm);
+  localStorage.setItem('boardList', JSON.stringify(state.boardList));
 })
 
 DOM.deleteSnap.addEventListener('click', () => {
@@ -151,6 +165,7 @@ DOM.deleteSnap.addEventListener('click', () => {
   snapView.removeSnap(state.boardList.activeBoard.snaps.activeSnap);
   state.boardList.activeBoard.snaps.setNoActiveSnap();
   formView.clearForm(DOM.snapSettingsForm);
+  localStorage.setItem('boardList', JSON.stringify(state.boardList));
 })
 
 
@@ -169,3 +184,15 @@ DOM.snapColor.addEventListener('change', (e) => {
   formView.changeDisplayColor(e);
   state.boardList.activeBoard.snaps.updateColorPicked();
 });
+
+function renderData() {
+  state.boardList.setNoActiveBoard();
+  state.boardList.boards.forEach(board => {
+    boardView.renderBoard(board);
+    board.snaps.setNoActiveSnap();
+    board.snaps.snaps.forEach(snap => {
+      snapView.renderSnap(snap);
+      snapView.hideSnap();
+    })
+  })
+}

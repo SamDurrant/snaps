@@ -2,21 +2,16 @@ import { DOM } from '../base';
 
 // CREATES BOARD NODE
 export const renderBoard = (activeBoard) => {
-    // create div
+  // create board div
   const div = document.createElement('div');
-    // add class
   div.className = 'board-card';
-    // set data attribute
   div.setAttribute('data-card-id', activeBoard.id);
-    // create name text node
   const textNode = document.createTextNode(activeBoard.name);
-    // create heading element
   const heading = document.createElement('h2');
-    // append text to heading
+
+  // append board together
   heading.append(textNode);
-    // append heading to div
   div.append(heading);
-    // append div to boardContainer
   DOM.boardContainer.appendChild(div);
 }
 
