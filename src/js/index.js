@@ -4,8 +4,8 @@ import '../sass/main.scss';
 import { DOM } from './base';
 import { BoardList } from './Models/BoardList';
 import { SnapList } from './Models/SnapList';
-import * as boardView from './Views/boardView';
-import * as snapView from './Views/snapView';
+import * as boardView from './Views/BoardView';
+import * as snapView from './Views/SnapView';
 import * as formView from './Views/FormView';
 
 // ----- create -----
