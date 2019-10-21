@@ -1,29 +1,38 @@
 .snap-card {
   perspective: 150rem;
   position: relative;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   font-size: 1.8rem;
   font-family: $font-lato;
   text-align: center;
   color: $color-white-smoke;
+  overflow-y: scroll;
 
   &__side {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem;
     transition: $transition-one;
     position: absolute;
     top: 0;
     left: 0;
     backface-visibility: hidden;
-    overflow-y: scroll;
-    
+    padding: 1rem;
+
+    &-front {
+      min-height: 100%;
+    }
+
     &-back {
       transform: rotateY(180deg);
+      height: 100%;
+    }
+
+    p {
+      overflow-wrap: break-word;
+      hyphens: auto;
     }
   }
 }
@@ -38,9 +47,12 @@
 .rotated {
   .snap-card__side-front {
     transform: rotateY(-180deg);
+    max-height: 100%;
+    overflow: hidden;
   }
   .snap-card__side-back {
     transform: rotateY(0deg);
+    min-height: 100%;
   }
 }
 

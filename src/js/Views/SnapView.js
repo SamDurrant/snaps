@@ -91,8 +91,7 @@ export const hideSnap = () => {
   })
 }
 
-export const rotateSnap = (e) => {
-  const snap = e.target.closest('.snap-card');
+export const rotateSnap = (snap) => {
   if (snap) {
     snap.classList.toggle('rotated');
   }

@@ -172,7 +172,27 @@ DOM.deleteSnap.addEventListener('click', () => {
 // ----- utilities -----
 
 // LISTEN FOR DOUBLE CLICK EVENT TO ROTATE SNAP
-DOM.snapContainer.addEventListener('dblclick', e => snapView.rotateSnap(e));
+DOM.snapContainer.addEventListener('dblclick', e => {
+  const snap = e.target.closest('.snap-card');
+  snapView.rotateSnap(snap);
+});
+
+// ALLOWS TRIPLE TAP ON MOBILE TO ROTATE SNAP
+let tappedTime = 0;
+let tappedSnap;
+DOM.snapContainer.addEventListener('touchstart', e => {
+  const snap = e.target.closest('.snap-card');
+
+  if (snap) {
+    let now = +(new Date());
+    if (tappedTime + 500 > now && tappedSnap === snap) {
+      e.preventDefault();
+      snapView.rotateSnap(tappedSnap);
+    }
+    tappedTime = now;
+    tappedSnap = snap;
+  }
+})
 
 // TOGGLE SETTINGS MENUS
 DOM.menuToggle.forEach(icon => {
@@ -197,13 +217,11 @@ function renderData() {
   })
 }
 
-// get viewport height, multiply by 1% to get value for a vh unit
+// SET VH TO MATCH INNER WINDOW HEIGHT
 let vh = window.innerHeight * 0.01;
-// set value of vh unit in root element
 document.documentElement.style.setProperty('--vh', `${vh}px`);
-//listen for resize event
+
 window.addEventListener('resize', () => {
-  // execute same script as before
   vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 })

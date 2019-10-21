@@ -12,7 +12,7 @@
   }
 
   @include respond (phone) {
-    grid-template-rows: 7rem 5rem minmax(9rem, min-content) 1fr;
+    grid-template-rows: 5.5rem 5rem minmax(9rem, min-content) 1fr;
   }
 }
 

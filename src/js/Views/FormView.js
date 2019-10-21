@@ -17,8 +17,8 @@ export const changeDisplayColor = (e) => {
 
 export const clearForm = (form) => {
   if (form === DOM.snapSettingsForm) {
-    DOM.snapColor.value = '#91a5b9';
-    DOM.snapColor.parentNode.style.backgroundColor = '#91a5b9';
+    DOM.snapColor.value = '#91B0C7';
+    DOM.snapColor.parentNode.style.backgroundColor = '#91B0C7';
   }
   form.reset();
 }
@@ -35,7 +35,7 @@ export const setBoardSettings = (activeBoard) => {
 
 export const getSnapSettings = (activeSnap) => {
   if (!activeSnap.colorPicked) {
-    DOM.snapColor.value = '#91a5b9';
+    DOM.snapColor.value = '#91B0C7';
   }
   return {
     name: DOM.snapName.value,

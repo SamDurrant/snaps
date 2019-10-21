@@ -6,7 +6,7 @@ export class SnapList {
     this.activeSnap = {};
   }
 
-  addSnap (name, parentId, color = '#91a5b9', fontSize = '18', size = '1x1', frontContent = '', backContent = '') {
+  addSnap (name, parentId, color = '#91B0C7', fontSize = '18', size = '1x1', frontContent = '', backContent = '') {
     const snap = {
       name,
       parentId,

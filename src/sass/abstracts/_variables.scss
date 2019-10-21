@@ -1,7 +1,8 @@
-$color-pewter: rgb(145, 165, 185);
+// $color-pewter: #91a5b9;
+$color-pewter: #91B0C7;
 $color-pewter-light: lighten($color: $color-pewter, $amount: 20%);
 
-$color-white-smoke: rgb(249, 245, 242);
+$color-white-smoke: #f9f5f2;
 
 $color-salmon-light: #fbbb9a;
 $color-salmon-lightest: lighten($color: $color-salmon-light, $amount: 10%);

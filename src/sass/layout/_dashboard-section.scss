@@ -15,9 +15,9 @@
 
 .add-field {
   position: relative;
-  margin: 2rem 1.5rem 2rem 0;
+  margin: 2rem 2.5rem 2rem 0;
 
   @include respond (tab-port) {
-    margin: 1rem 1.5rem 1rem 0;
+    margin: 1rem 2.5rem 1rem 0;
   }
 }
