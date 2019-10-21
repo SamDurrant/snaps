@@ -20,7 +20,7 @@
     top: 0;
     left: 0;
     backface-visibility: hidden;
-    overflow: scroll;
+    overflow-y: scroll;
     
     &-back {
       transform: rotateY(180deg);

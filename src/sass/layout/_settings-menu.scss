@@ -1,21 +1,14 @@
 .settings-menu {
-  flex: 1 1 100%;
+  height: max-content;
 }
 
 .settings-form {
   margin: 2rem auto;
-  padding: 1rem 1rem 3rem;
+  padding: 1rem 0 3rem 0;
   width: fit-content;
 
-  // @include respond (tab-port) {
-  //   padding: 1rem 3rem 2.5rem;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   justify-content: center;
-  // }
   @include respond (phone) {
     padding: 1rem 1.5rem 2rem;
-    flex-direction: column;
   }
   
   &__name,

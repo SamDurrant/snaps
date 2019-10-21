@@ -5,7 +5,7 @@ export const clearInput = input => input.value = '';
 
 export const toggleSettings = (e) => {
   const icon = e.target.closest('.js-menu-icon');
-  const menu = icon.nextElementSibling;
+  const menu = icon.parentNode.nextElementSibling;
   menu.classList.toggle('hidden');
   menu.classList.toggle('visuallyhidden');
   icon.classList.toggle('btn-dropdown--active');

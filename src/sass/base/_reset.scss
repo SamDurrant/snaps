@@ -23,6 +23,7 @@ body {
   color: $color-pineapple;
   font-family: $font-lato;
   font-size: 1.8rem;
+  overflow: hidden;
 }
 
 
@@ -39,5 +40,5 @@ body {
 
 .visuallyhidden {
   opacity: 0;
-  transition: all 2s $transition-one;
+  transition: $transition-one;
 }

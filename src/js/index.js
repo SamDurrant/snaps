@@ -196,3 +196,14 @@ function renderData() {
     })
   })
 }
+
+// get viewport height, multiply by 1% to get value for a vh unit
+let vh = window.innerHeight * 0.01;
+// set value of vh unit in root element
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+//listen for resize event
+window.addEventListener('resize', () => {
+  // execute same script as before
+  vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+})

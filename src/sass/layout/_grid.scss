@@ -1,6 +1,7 @@
 .container {
   width: 100vw;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: grid;
   grid-template-rows: 10rem 6rem 1fr;
   grid-template-columns: 30rem 1fr;

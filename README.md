@@ -36,8 +36,8 @@ As someone learning many new things, it can be hard to keep track of it all. I w
 ## Challenges
 
 * While I thought I had done enough planning, I quickly found myself disliking the intended layout. Once I began coding in some of the logic, the UI no longer made as much sense. I ended up switching a few areas around halfway though the project, but did come up with a design that made me happy.
-* It was difficult at times maintaining clean code. Things that made this difficult include naming conventions and not thinking about the different components in the application.
-* I found that in order to clean up my code, I often had to write a slightly longer version first before I could then refactor into cleaner drier code.
+* I found that in order to clean up my code, sometimes I had to write a slightly longer version first before I could then refactor into cleaner drier code.
+* Utilizing an article from [CSSTricks](https://css-tricks.com/the-trick-to-viewport-units-on-mobile/) I was able to figure out how to get the application to fit the screen size. This prevents the app from hiding under the taskbar on mobile.
 
 ## Future Additions
 

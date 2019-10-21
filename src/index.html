@@ -20,16 +20,19 @@
 
     <section class="dashboard-section">
       <section class="dashboard-section__board">
-        <div class="add-field">
-          <label for="add-board">
-            <input type="text" name="add-board" placeholder="add board" class="btn-field btn-field_m js-add-board">
-          </label>
-          <button class="btn-field_btn btn-field_btn_m js-add-board-btn">+</button>
+        <div class="add-field-container">
+          <div class="add-field">
+            <label for="add-board">
+              <input type="text" name="add-board" placeholder="add board" class="btn-field btn-field_m js-add-board">
+            </label>
+            <button class="btn-field_btn btn-field_btn_m js-add-board-btn">+</button>
+          </div>
+
+          <div class="settings-menu-icon js-menu-icon btn-dropdown" name="board-menu-icon" tabindex="0">
+            <span></span>
+          </div>
         </div>
         
-        <div class="settings-menu-icon js-menu-icon btn-dropdown" name="board-menu-icon" tabindex="0">
-          <span></span>
-        </div>
 
         <div class="settings-menu js-board-menu hidden visuallyhidden">
           <form class="settings-form js-board-settings">
@@ -47,16 +50,19 @@
       </section>
 
       <section class="dashboard-section__snap">
-        <div class="add-field">
-          <label for="add-snap">
-            <input type="text" name="add-snap" placeholder="add snap" class="btn-field btn-field_m js-add-snap">
-          </label>
-          <button class="btn-field_btn btn-field_btn_m js-add-snap-btn">+</button>
+        <div class="add-field-container">
+          <div class="add-field">
+            <label for="add-snap">
+              <input type="text" name="add-snap" placeholder="add snap" class="btn-field btn-field_m js-add-snap">
+            </label>
+            <button class="btn-field_btn btn-field_btn_m js-add-snap-btn">+</button>
+          </div>
+          
+          <div class="settings-menu-icon js-menu-icon btn-dropdown" tabindex="0">
+            <span></span>
+          </div>
         </div>
 
-        <div class="settings-menu-icon js-menu-icon btn-dropdown" tabindex="0">
-          <span></span>
-        </div>
 
         <div class="settings-menu hidden visuallyhidden">
           <form class="settings-form js-snap-settings">

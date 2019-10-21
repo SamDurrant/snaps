@@ -1,26 +1,16 @@
 .dashboard-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   overflow: scroll;
   
   &__board,
   &__snap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-top: 2rem;
-
-    @include respond(tab-port) {
-      padding: .5rem 0;
-      max-width: 90%;
-    }
-    @include respond(phone) {
-      max-width: 95%;
-    }
+    padding: 1rem;
   }
+}
+
+.add-field-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-field {
