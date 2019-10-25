@@ -1,7 +1,7 @@
 {
-  "name": "basic-start",
+  "name": "snaps",
   "version": "1.0.0",
-  "description": "basic start file setup",
+  "description": "A small web application to store notes, ideas and more",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --open",

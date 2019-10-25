@@ -38,11 +38,11 @@
           <form class="settings-form js-board-settings">
             <div class="settings-form__name">
               <label for="board-name">name</label>
-              <input type="text" name="board-name" class="btn-field btn-field_sm" id="board-name">
+              <input type="text" name="board-name" class="btn-field btn-field_sm js-board-name">
             </div>
 
             <div class="settings-form__btns">
-              <i name="delete board" class="fas fa-trash-alt btn-delete" id="js-delete-board" tabindex="0"></i>
+              <i name="delete board" class="fas fa-trash-alt btn-delete js-delete-board" tabindex="0"></i>
               <button class="btn-submit" type="submit">change</button>
             </div>
           </form>
@@ -68,19 +68,19 @@
           <form class="settings-form js-snap-settings">
             <div class="settings-form__name">
               <label for="snap-name">name</label>
-              <input type="text" name="snap-name" class="btn-field btn-field_sm" id="snap-name">
+              <input type="text" name="snap-name" class="btn-field btn-field_sm js-snap-name">
             </div>
             
             <div class="settings-form__color">
               <div class="btn-color__display">
-                <input type="color" name="snap-color" class="btn-color__input" id="snap-color">
+                <input type="color" name="snap-color" class="btn-color__input js-snap-color">
               </div>
               <label for="snap-color" class="settings-form__color-label">color</label>
             </div>
 
             <div class="settings-form__font">
               <label for="snap-font">font</label>
-              <select name="snap-font" class="select__custom select__custom-sm" id="snap-font">
+              <select name="snap-font" class="select__custom select__custom-sm js-snap-font">
                 <option value="12">12</option>
                 <option value="14">14</option>
                 <option value="16">16</option>
@@ -95,7 +95,7 @@
 
             <div class="settings-form__sizing">
               <label for="snap-size">size</label>
-              <select name="snap-size" class="select__custom select__custom-lg" id="snap-size">
+              <select name="snap-size" class="select__custom select__custom-lg js-snap-size">
                 <option value="1x1" selected>1 x 1</option>
                 <option value="1x2">1 x 2</option>
                 <option value="1x3">1 x 3</option>
@@ -111,17 +111,17 @@
             <div class="textarea-container">
               <div class="settings-form__textarea">
                 <label for="front">front</label>
-                <textarea name="front" id="snap-front" class="input__content"></textarea>
+                <textarea name="front" class="input__content js-snap-front"></textarea>
               </div>
 
               <div class="settings-form__textarea">
                 <label for="back">back</label>
-                <textarea name="back" id="snap-back" class="input__content"></textarea>
+                <textarea name="back" class="input__content js-snap-back"></textarea>
               </div>
             </div>
 
             <div class="settings-form__btns">
-              <i name="delete board" class="fas fa-trash-alt btn-delete" id="js-delete-snap" tabindex="0"></i>
+              <i name="delete board" class="fas fa-trash-alt btn-delete js-delete-snap" tabindex="0"></i>
               <button class="btn-submit" type="submit">change</button>
             </div>
           </form>
