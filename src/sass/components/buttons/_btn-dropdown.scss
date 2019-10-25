@@ -1,0 +1,51 @@
+// hamburger icons for hidden menus
+.btn-dropdown {
+  &:focus {
+    outline: none;
+    box-shadow: $pineapple-shadow;
+  }
+
+  span {
+    width: 3rem;
+    height: 5px;
+    display: block;
+    position: relative;
+    border-radius: 5rem;
+    margin: 1rem 0;
+    background-color: $color-pineapple;
+    transition: $transition-one;
+    
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 3rem;
+      height: 5px;
+      display: block;
+      border-radius: 5rem;
+      background-color: $color-pineapple;
+      transition: $transition-one;
+    }
+
+    &::before {
+      top: -10px;
+    }
+
+    &::after {
+      bottom: -10px;
+    }
+  }
+}
+
+// creates X when menus are open
+.btn-dropdown--active span {
+  background-color: transparent;
+
+  &::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  &::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+}

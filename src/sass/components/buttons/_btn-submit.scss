@@ -1,18 +1,19 @@
 .btn-submit {
   background-color: $color-pineapple;
+  color: $color-white-smoke;
+  text-transform: uppercase;
   font-family: $font-lato;
   font-size: 1.5rem;
   letter-spacing: 1px;
-  color: $color-white-smoke;
   padding: 8px 2rem;
   border: none;
-  text-transform: uppercase;
   transition: $transition-one;
 
   &:focus {
     outline: none;
     box-shadow: $pineapple-shadow;
   }
+  
   &:hover {
     background-color: $color-pineapple-light;
     border-radius: 2rem;

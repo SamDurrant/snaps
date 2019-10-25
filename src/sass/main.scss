@@ -1,5 +1,4 @@
 
-@import 'abstracts/animations';
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
 
@@ -7,13 +6,13 @@
 @import 'base/typography';
 
 @import 'components/board-card';
-@import 'components/btn-color';
-@import 'components/btn-dropdown';
-@import 'components/btn-edit';
-@import 'components/btn-field';
-@import 'components/btn-submit';
-@import 'components/input__content';
-@import 'components/select__custom';
+@import 'components/buttons/btn-color';
+@import 'components/buttons/btn-dropdown';
+@import 'components/buttons/btn-delete';
+@import 'components/buttons/btn-field';
+@import 'components/buttons/btn-submit';
+@import 'components/buttons/input__content';
+@import 'components/buttons/select__custom';
 @import 'components/snap-card';
 
 @import 'layout/board-section';

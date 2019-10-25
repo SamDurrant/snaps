@@ -1,6 +1,5 @@
 .board-card {
   height: 100%;
-  display: inline-block;
   text-align: center;
   padding: 1rem 2rem;
   transition: $transition-one;
@@ -11,10 +10,6 @@
     width: max-content;
   }
 
-  &:focus {
-    outline: none;
-    box-shadow: $pineapple-shadow;
-  }
   &:hover {
     background-color: $color-pineapple;
     color: $color-white-smoke;
