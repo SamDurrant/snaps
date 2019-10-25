@@ -13,7 +13,7 @@ export const DOM = {
   snapContainer: document.querySelector('.js-snap-container'),
   snapSettingsForm: document.querySelector('.js-snap-settings'),
   snapName: document.querySelector('.js-snap-name'),
-  snapColor: document.querySelector('js-snap-color'),
+  snapColor: document.querySelector('.js-snap-color'),
   snapFont: document.querySelector('.js-snap-font'), 
   snapSize: document.querySelector('.js-snap-size'),
   snapFront: document.querySelector('.js-snap-front'),

@@ -16,11 +16,11 @@ export const changeDisplayColor = (e) => {
 }
 
 export const clearForm = (form) => {
+  form.reset();
   if (form === DOM.snapSettingsForm) {
     DOM.snapColor.value = '#91B0C7';
     DOM.snapColor.parentNode.style.backgroundColor = '#91B0C7';
   }
-  form.reset();
 }
 
 export const getBoardSettings = () => {

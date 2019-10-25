@@ -17,7 +17,7 @@ const state = {};
 document.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('boardList')) {
     state.boardList = BoardList.fromJSON(JSON.parse(localStorage.getItem('boardList')));
-    state.boardList.boards.forEach(board => {
+    state.boardList.cards.forEach(board => {
       board.snaps = SnapList.fromJSON(board.snaps);
     })
     renderData();
@@ -45,10 +45,10 @@ DOM.addBoardBtn.addEventListener('click', () => {
   if (query) {
     removeActiveUI();
     const id = state.boardList.addBoard(query, new SnapList());
-    state.boardList.setActiveBoard(id);
-    boardView.renderBoard(state.boardList.activeBoard);
-    boardView.setActiveClass(state.boardList.activeBoard);
-    formView.setBoardSettings(state.boardList.activeBoard);
+    state.boardList.setActiveCard(id);
+    boardView.renderBoard(state.boardList.activeCard);
+    boardView.setActiveClass(state.boardList.activeCard);
+    formView.setBoardSettings(state.boardList.activeCard);
     formView.clearForm(DOM.snapSettingsForm);
     localStorage.setItem('boardList', JSON.stringify(state.boardList));
   }
@@ -64,17 +64,17 @@ DOM.addSnapInput.addEventListener('keyup', (e) => {
 
 // BTN CLICK RETRIEVES INPUT VALUE AND CREATES NEW SNAP
 DOM.addSnapBtn.addEventListener('click', () => {
-  if (Object.keys(state.boardList.activeBoard).length !== 0) {
+  if (Object.keys(state.boardList.activeCard).length !== 0) {
     const query = formView.getInput(DOM.addSnapInput);
     formView.clearInput(DOM.addSnapInput);
 
     if (query) {
-      const snaps = state.boardList.activeBoard.snaps;
-      const id = snaps.addSnap(query, state.boardList.activeBoard.id);
-      snaps.setActiveSnap(id);
-      snapView.renderSnap(snaps.activeSnap);
-      snapView.setActiveClass(snaps.activeSnap);
-      formView.setSnapSettings(snaps.activeSnap);
+      const snaps = state.boardList.activeCard.snaps;
+      const id = snaps.addSnap(query, state.boardList.activeCard.id);
+      snaps.setActiveCard(id);
+      snapView.renderSnap(snaps.activeCard);
+      snapView.setActiveClass(snaps.activeCard);
+      formView.setSnapSettings(snaps.activeCard);
       localStorage.setItem('boardList', JSON.stringify(state.boardList));
     }
   }
@@ -86,14 +86,12 @@ DOM.addSnapBtn.addEventListener('click', () => {
 // LISTEN FOR CLICK EVENT IN SNAP CONTAINER
 DOM.snapContainer.addEventListener('click', (e) => {
   const snap = e.target.closest('.snap-card');
-  const snaps = state.boardList.activeBoard.snaps;
+  const snaps = state.boardList.activeCard.snaps;
   
-  if (snap) {
-    if (snaps) {
-      snaps.setActiveSnap(snap.getAttribute('data-card-id'));
-      snapView.setActiveClass(snaps.activeSnap);
-      formView.setSnapSettings(snaps.activeSnap);
-    }
+  if (snap && snaps) {
+    snaps.setActiveCard(snap.getAttribute('data-card-id'));
+    snapView.setActiveClass(snaps.activeCard);
+    formView.setSnapSettings(snaps.activeCard);
   }
 })
 
@@ -103,21 +101,21 @@ DOM.boardContainer.addEventListener('click', (e) => {
 
   if (board) {
     removeActiveUI();
-    state.boardList.setActiveBoard(board.getAttribute('data-card-id'));
-    boardView.setActiveClass(state.boardList.activeBoard);
-    snapView.toggleVisibility(state.boardList.activeBoard.id);
-    formView.setBoardSettings(state.boardList.activeBoard);
+    state.boardList.setActiveCard(board.getAttribute('data-card-id'));
+    boardView.setActiveClass(state.boardList.activeCard);
+    snapView.toggleVisibility(state.boardList.activeCard.id);
+    formView.setBoardSettings(state.boardList.activeCard);
     formView.clearForm(DOM.snapSettingsForm);
   }
 })
 
 // CHECKS FOR AN ACTIVE BOARD BEFORE REMOVING ACTIVE CLASS ON BOARD AND ITS SNAPS AND TOGGLES SNAP VISIBILITY
 function removeActiveUI() {
-  if (state.boardList.activeBoard) {
-    boardView.removeActiveClass(state.boardList.activeBoard);
-    if (state.boardList.activeBoard.snaps) {
-      snapView.removeActiveClass(state.boardList.activeBoard.snaps.activeSnap);
-      snapView.toggleVisibility(state.boardList.activeBoard.id);
+  if (state.boardList.activeCard) {
+    boardView.removeActiveClass(state.boardList.activeCard);
+    if (state.boardList.activeCard.snaps) {
+      snapView.removeActiveClass(state.boardList.activeCard.snaps.activeCard);
+      snapView.toggleVisibility(state.boardList.activeCard.id);
     }
   }
 }
@@ -128,42 +126,46 @@ function removeActiveUI() {
 // RETRIEVES VALUES FROM BOARD FORM AND UPDATES DATA, RESETS ACTIVE BOARD WITH CORRECT VALUES, UPDATES BOARD AND FORM ACCORDINGLY
 DOM.boardSettingsForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const boardFormValues = formView.getBoardSettings();
-  state.boardList.updateBoardData(boardFormValues);
-  state.boardList.setActiveBoard(state.boardList.activeBoard.id);
-  boardView.updateBoard(state.boardList.activeBoard);
-  formView.setBoardSettings(state.boardList.activeBoard);
-  localStorage.setItem('boardList', JSON.stringify(state.boardList));
+  if (state.boardList.activeCard) {
+    const boardFormValues = formView.getBoardSettings();
+    state.boardList.updateCardData(boardFormValues);
+    state.boardList.setActiveCard(state.boardList.activeCard.id);
+    boardView.updateBoard(state.boardList.activeCard);
+    formView.setBoardSettings(state.boardList.activeCard);
+    localStorage.setItem('boardList', JSON.stringify(state.boardList));
+  }
 })
 
 DOM.snapSettingsForm.addEventListener('submit', (e) => {
-  let snaps = state.boardList.activeBoard.snaps;
+  let snaps = state.boardList.activeCard.snaps;
   e.preventDefault();
-  const snapFormValues = formView.getSnapSettings(snaps.activeSnap);
-  snaps.updateSnapData(snapFormValues);
-  snaps.setActiveSnap(snaps.activeSnap.id);
-  snapView.updateSnap(snaps.activeSnap);
-  formView.setSnapSettings(snaps.activeSnap);
-  localStorage.setItem('boardList', JSON.stringify(state.boardList));
+  if (snaps.activeCard) {
+    const snapFormValues = formView.getSnapSettings(snaps.activeCard);
+    snaps.updateCardData(snapFormValues);
+    snaps.setActiveCard(snaps.activeCard.id);
+    snapView.updateSnap(snaps.activeCard);
+    formView.setSnapSettings(snaps.activeCard);
+    localStorage.setItem('boardList', JSON.stringify(state.boardList));
+  }
 })
 
 
 // ----- deletion -----
 DOM.deleteBoard.addEventListener('click', () => {
-  state.boardList.deleteBoard();
-  boardView.removeBoard(state.boardList.activeBoard);
-  state.boardList.activeBoard.snaps.snaps.forEach(snap => {
+  state.boardList.deleteCard();
+  boardView.removeBoard(state.boardList.activeCard);
+  state.boardList.activeCard.snaps.cards.forEach(snap => {
     snapView.removeSnap(snap);
   })
-  state.boardList.setNoActiveBoard();
+  state.boardList.setNoActiveCard();
   formView.clearForm(DOM.boardSettingsForm);
   localStorage.setItem('boardList', JSON.stringify(state.boardList));
 })
 
 DOM.deleteSnap.addEventListener('click', () => {
-  state.boardList.activeBoard.snaps.deleteSnap();
-  snapView.removeSnap(state.boardList.activeBoard.snaps.activeSnap);
-  state.boardList.activeBoard.snaps.setNoActiveSnap();
+  state.boardList.activeCard.snaps.deleteCard();
+  snapView.removeSnap(state.boardList.activeCard.snaps.activeCard);
+  state.boardList.activeCard.snaps.setNoActiveCard();
   formView.clearForm(DOM.snapSettingsForm);
   localStorage.setItem('boardList', JSON.stringify(state.boardList));
 })
@@ -202,15 +204,15 @@ DOM.menuToggle.forEach(icon => {
 // CHANGE COLOR DISPLAY TO RESPOND TO COLOR INPUT
 DOM.snapColor.addEventListener('change', (e) => {
   formView.changeDisplayColor(e);
-  state.boardList.activeBoard.snaps.updateColorPicked();
+  state.boardList.activeCard.snaps.updateColorPicked();
 });
 
 function renderData() {
-  state.boardList.setNoActiveBoard();
-  state.boardList.boards.forEach(board => {
+  state.boardList.setNoActiveCard();
+  state.boardList.cards.forEach(board => {
     boardView.renderBoard(board);
-    board.snaps.setNoActiveSnap();
-    board.snaps.snaps.forEach(snap => {
+    board.snaps.setNoActiveCard();
+    board.snaps.cards.forEach(snap => {
       snapView.renderSnap(snap);
       snapView.hideSnap();
     })

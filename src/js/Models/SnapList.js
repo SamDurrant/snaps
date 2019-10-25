@@ -1,9 +1,8 @@
 import uniqeid from 'uniqid';
-
-export class SnapList {
+import Card from './Card';
+export class SnapList extends Card {
   constructor() {
-    this.snaps = [];
-    this.activeSnap = {};
+    super();
   }
 
   addSnap (name, parentId, color = '#91B0C7', fontSize = '18', size = '1x1', frontContent = '', backContent = '') {
@@ -19,40 +18,18 @@ export class SnapList {
       backContent
     }
 
-    this.snaps.push(snap);
+    this.cards.push(snap);
     return snap.id;
   }
 
-  deleteSnap() {
-    this.snaps = this.snaps.filter(snap => snap.id !== this.activeSnap.id)
-  }
-
-  setActiveSnap(id) {
-    this.activeSnap = this.snaps.find(snap => snap.id === id);
-  }
-
-  setNoActiveSnap() {
-    this.activeSnap = {};
-  }
-
-  updateSnapData(formValues) {
-    const updatedSnaps = this.snaps.map(snap => {
-      if (snap.id === this.activeSnap.id) {
-        snap = {...snap, ...formValues};
-      }
-      return snap;
-    });
-    this.snaps = updatedSnaps;
-  }
-
   updateColorPicked() {
-    const updatedSnaps = this.snaps.map(snap => {
-      if (snap.id === this.activeSnap.id) {
-        snap.colorPicked = true;
+    const updatedCards = this.cards.map(card => {
+      if (card.id === this.activeCard.id) {
+        card.colorPicked = true;
       }
-      return snap;
+      return card;
     });
-    this.snaps = updatedSnaps;
+    this.cards = updatedCards;
   }
 
   static fromJSON(jsonObj) {

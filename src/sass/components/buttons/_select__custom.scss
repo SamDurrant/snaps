@@ -12,6 +12,10 @@
     width: 8rem;
     height: 3rem;
     font-size: 1.6rem;
+
+    @include respond (phone) {
+      font-size: 16px;
+    }
   }
 
   &-lg {
