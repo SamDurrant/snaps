@@ -3,10 +3,23 @@
   width: 15rem;
   height: 4rem;
   border: none;
-  background-color: $color-pineapple;
   color: $color-white-smoke;
   font-family: $font-lato;
   padding-left: 15px;
+  // add custom arrow to select dropdown
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('../images/arrow.svg') no-repeat 95% 50%, $color-pineapple;
+  &::-ms-expand {
+    display: none;
+  }
+
+  @media screen and (min-width:0\0) {
+    background-image:none\9;
+    padding: 5px\9;
+  }
 
   &-sm {
     width: 8rem;

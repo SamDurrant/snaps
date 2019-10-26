@@ -1,5 +1,5 @@
 # Snaps
-A small web application to store and organize notes, ideas, vocabulary and more. Each snap card holds information on it's front, back or both sides. Snaps are organized into boards. Data is stored in local storage.
+A small web application built to store and organize notes, ideas, vocabulary and more. Each snap card holds information on it's front, back or both sides. Boards organize your snaps in groups. Data is saved in local storage.
 
 ## Live Demo
 
