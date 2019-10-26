@@ -139,7 +139,7 @@ DOM.snapColor.addEventListener('change', (e) => {
 
 // REMOVE ACTIVE CLASS ON BOARD AND TOGGLES ITS SNAP VISIBILITY
 function removeActiveUI() {
-  if (state.boardList.activeCard) {
+  if (state.boardList.activeCard.id) {
     boardView.removeActiveClass(state.boardList.activeCard);
     if (state.boardList.activeCard.snaps) {
       snapView.removeActiveClass(state.boardList.activeCard.snaps.activeCard);
@@ -169,6 +169,7 @@ function addDemo() {
     handleSnapUpdate(snap);
   })
   removeActiveUI();
+  state.boardList.setNoActiveCard();
 }
 
 // SET VH TO MATCH INNER WINDOW HEIGHT
