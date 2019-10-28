@@ -1,5 +1,8 @@
 // hamburger icons for hidden menus
 .btn-dropdown {
+  background-color: transparent;
+  border: none;
+
   &:focus {
     outline: none;
     box-shadow: $pineapple-shadow;

@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://www.i.ibb.co/yS640yx/screen-Shot-Clear.png?1234">
   <meta property="og:image:alt" content="A screenshot of the Snaps app.">
   <title>Snaps | Organize Your Ideas</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato|Oswald:400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato%7COswald:700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/d13f232e62.js" crossorigin="anonymous"></script>
 </head>
 
@@ -28,27 +28,25 @@
       <section class="dashboard-section__board">
         <div class="add-field-container">
           <div class="add-field">
-            <label for="add-board">
-              <input type="text" name="add-board" placeholder="add board" class="btn-field btn-field_m js-add-board">
-            </label>
-            <button class="btn-field_btn btn-field_btn_m js-add-board-btn">+</button>
+            <input type="text" name="add-board" placeholder="add board" class="btn-field btn-field_m js-add-board" aria-label="add board input">
+            <button class="btn-field_btn btn-field_btn_m js-add-board-btn" aria-label="add board button">+</button>
           </div>
 
-          <div class="settings-menu-icon js-menu-icon btn-dropdown" name="board-menu-icon" tabindex="0">
+          <button class="settings-menu-icon js-menu-icon btn-dropdown" aria-haspopup="true" tabindex="0">
             <span></span>
-          </div>
+          </button>
         </div>
         
 
         <div class="settings-menu js-board-menu hidden visuallyhidden">
           <form class="settings-form js-board-settings">
             <div class="settings-form__name">
-              <label for="board-name">name</label>
-              <input type="text" name="board-name" class="btn-field btn-field_sm js-board-name">
+              <label>name</label>
+              <input type="text" name="board-name" class="btn-field btn-field_sm js-board-name" aria-label="board name">
             </div>
 
             <div class="settings-form__btns">
-              <i name="delete board" class="fas fa-trash-alt btn-delete js-delete-board" tabindex="0"></i>
+              <i class="fas fa-trash-alt btn-delete js-delete-board" aria-hidden="true" title="delete board" tabindex="0"></i>
               <button class="btn-submit" type="submit">change</button>
             </div>
           </form>
@@ -58,35 +56,33 @@
       <section class="dashboard-section__snap">
         <div class="add-field-container">
           <div class="add-field">
-            <label for="add-snap">
-              <input type="text" name="add-snap" placeholder="add snap" class="btn-field btn-field_m js-add-snap">
-            </label>
-            <button class="btn-field_btn btn-field_btn_m js-add-snap-btn">+</button>
+            <input type="text" name="add-snap" placeholder="add snap" class="btn-field btn-field_m js-add-snap" aria-label="add snap input">
+            <button class="btn-field_btn btn-field_btn_m js-add-snap-btn" aria-label="add snap button">+</button>
           </div>
           
-          <div class="settings-menu-icon js-menu-icon btn-dropdown" tabindex="0">
+          <button class="settings-menu-icon js-menu-icon btn-dropdown" aria-haspopup="true" tabindex="0">
             <span></span>
-          </div>
+          </button>
         </div>
 
 
         <div class="settings-menu hidden visuallyhidden">
           <form class="settings-form js-snap-settings">
             <div class="settings-form__name">
-              <label for="snap-name">name</label>
-              <input type="text" name="snap-name" class="btn-field btn-field_sm js-snap-name">
+              <label>name</label>
+              <input type="text" name="snap-name" class="btn-field btn-field_sm js-snap-name" aria-label="snap name">
             </div>
             
             <div class="settings-form__color">
               <div class="btn-color__display">
-                <input type="color" name="snap-color" class="btn-color__input js-snap-color">
+                <input type="color" name="snap-color" class="btn-color__input js-snap-color" aria-label="snap color">
               </div>
-              <label for="snap-color" class="settings-form__color-label">color</label>
+              <label class="settings-form__color-label">color</label>
             </div>
 
             <div class="settings-form__font">
-              <label for="snap-font">font</label>
-              <select name="snap-font" class="select__custom select__custom-sm js-snap-font">
+              <label>font</label>
+              <select name="snap-font" class="select__custom select__custom-sm js-snap-font" aria-label="snap font size">
                 <option value="12">12</option>
                 <option value="14">14</option>
                 <option value="16">16</option>
@@ -100,8 +96,8 @@
             </div>
 
             <div class="settings-form__sizing">
-              <label for="snap-size">size</label>
-              <select name="snap-size" class="select__custom select__custom-lg js-snap-size">
+              <label>size</label>
+              <select name="snap-size" class="select__custom select__custom-lg js-snap-size" aria-label="snap size">
                 <option value="1x1" selected>1 x 1</option>
                 <option value="1x2">1 x 2</option>
                 <option value="1x3">1 x 3</option>
@@ -116,18 +112,18 @@
 
             <div class="textarea-container">
               <div class="settings-form__textarea">
-                <label for="front">front</label>
-                <textarea name="front" class="input__content js-snap-front"></textarea>
+                <label>front</label>
+                <textarea name="front" class="input__content js-snap-front" aria-label="front text"></textarea>
               </div>
 
               <div class="settings-form__textarea">
-                <label for="back">back</label>
-                <textarea name="back" class="input__content js-snap-back"></textarea>
+                <label>back</label>
+                <textarea name="back" class="input__content js-snap-back" aria-label="back text"></textarea>
               </div>
             </div>
 
             <div class="settings-form__btns">
-              <i name="delete board" class="fas fa-trash-alt btn-delete js-delete-snap" tabindex="0"></i>
+              <i class="fas fa-trash-alt btn-delete js-delete-snap" aria-hidden="true" title="delete snap" tabindex="0"></i>
               <button class="btn-submit" type="submit">change</button>
             </div>
           </form>
